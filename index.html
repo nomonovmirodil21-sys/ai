@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10152f">
+  <title>ADPI Aqlni Charxlash</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader" class="loader"><div class="loader-mark">🧠</div><p>Bilim sari yo‘l...</p><div class="loader-line"><i></i></div></div>
+  <main id="app">
+    <section id="welcome" class="screen welcome-screen">
+      <div class="welcome-orb orb-one"></div><div class="welcome-orb orb-two"></div>
+      <div class="welcome-card glass">
+        <div class="brand-mark">🧠<span>✦</span></div>
+        <div class="eyebrow">ANDIJON DAVLAT PEDAGOGIKA INSTITUTI</div>
+        <h1>ADPI <span>AQLNI<br>CHARXLASH</span></h1>
+        <p class="welcome-slogan">Bilim — eng katta kuch!</p>
+        <p class="muted welcome-copy">Bilimingizni sinang, mantiqiy fikrlashingizni rivojlantiring va institutning eng zukko bilimdonlari qatoridan joy oling.</p>
+        <button class="btn btn-primary btn-large" id="welcomeStart">Boshlash <span>→</span></button>
+        <div class="welcome-foot"><span>⚡ 20 ta intellektual o‘yin</span><span>🏆 Umumiy reyting</span><span>🎯 16–25 yosh</span></div>
+      </div>
+    </section>
+
+    <section id="register" class="screen center-screen hidden">
+      <div class="form-card glass">
+        <div class="step-label">01 / PROFIL</div><h2>O‘yinga xush kelibsiz!</h2>
+        <p class="muted">Ismingiz va yoshingizni kiriting, o‘zingizga avatar tanlang.</p>
+        <label for="playerName">Ismingiz</label><input id="playerName" maxlength="32" placeholder="Masalan: Mirodil" autocomplete="given-name">
+        <label for="playerAge">Yoshingiz</label><select id="playerAge"><option value="">Yoshni tanlang</option></select>
+        <div id="groupChoice" class="group-choice hidden"><span>20 yosh uchun yosh guruhini tanlang:</span><div class="group-buttons"><button data-group="16-20" class="group-btn">16–20 yosh</button><button data-group="20-25" class="group-btn">20–25 yosh</button></div></div>
+        <label>Avatar tanlang</label><div id="avatarGrid" class="avatar-grid"></div>
+        <p id="registerError" class="error-text"></p>
+        <button class="btn btn-primary full" id="continueBtn">Davom etish <span>→</span></button>
+      </div>
+    </section>
+
+    <section id="dashboard" class="screen hidden">
+      <header class="topbar">
+        <a class="brand" href="#" data-page="home"><span class="brand-icon">🧠</span><span>ADPI <b>AQLNI CHARXLASH</b></span></a>
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <nav id="mainNav">
+          <button data-page="home" class="nav-link active">Bosh sahifa</button>
+          <button data-page="games" class="nav-link">O‘yinlar</button>
+          <button data-page="ranking" class="nav-link">Reyting</button>
+          <button data-page="results" class="nav-link">Natijalar</button>
+          <button data-page="about" class="nav-link">Biz haqimizda</button>
+        </nav>
+        <div class="top-actions"><button id="themeToggle" class="icon-btn" title="Mavzuni almashtirish">☾</button><button id="profileBtn" class="profile-chip"><span id="navAvatar">🧑‍🎓</span><b id="navName">Talaba</b></button><button id="logoutBtn" class="icon-btn" title="Chiqish">↪</button></div>
+      </header>
+      <div class="dashboard-wrap">
+        <div id="page-home" class="page">
+          <section class="hero-panel">
+            <div><div class="eyebrow">ADPI INTELLEKTUAL MAYDONI</div><h1 id="helloTitle">Assalomu alaykum!</h1><p>Bugun bilimingizni yana bir pog‘ona yuqoriga olib chiqing.</p><div class="hero-actions"><button class="btn btn-primary" data-goto="games">O‘yinlarni boshlash →</button><button class="btn btn-ghost" data-goto="ranking">Reytingni ko‘rish</button></div></div>
+            <div class="hero-illustration"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="brain-emoji">🧠</div><div class="float-tag tag-a">+100 XP</div><div class="float-tag tag-b">TOP PLAYER</div></div>
+          </section>
+          <div class="section-heading"><div><div class="eyebrow">SIZNING NATIJALARINGIZ</div><h2>Shaxsiy statistika</h2></div><span class="pill" id="groupPill">16–20 yosh</span></div>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-icon purple">⭐</div><span>Jami ball</span><strong id="statPoints">0</strong><small>Umumiy natija</small></article>
+            <article class="stat-card"><div class="stat-icon blue">🎮</div><span>O‘ynalgan o‘yinlar</span><strong id="statGames">0</strong><small>Yakunlangan o‘yinlar</small></article>
+            <article class="stat-card"><div class="stat-icon green">✓</div><span>To‘g‘ri javoblar</span><strong id="statCorrect">0</strong><small>Barcha o‘yinlar bo‘yicha</small></article>
+            <article class="stat-card"><div class="stat-icon orange">🏆</div><span>Eng yuqori natija</span><strong id="statBest">0</strong><small>Bir o‘yindagi ball</small></article>
+          </div>
+          <div class="section-heading"><div><div class="eyebrow">BUGUNGI TAVSIYA</div><h2>Bilimingizni sinab ko‘ring</h2></div><button class="text-btn" data-goto="games">Barcha o‘yinlar →</button></div>
+          <div id="featuredGames" class="game-grid compact-grid"></div>
+          <section class="daily-card"><div class="daily-icon">🎯</div><div><div class="eyebrow">KUNLIK TOPSHIRIQ</div><h3>Bugun kamida bitta o‘yinni yakunlang</h3><p>Har kuni mashq qiling — natijangizni muntazam yaxshilang.</p></div><div class="daily-progress"><strong id="dailyCount">0/1</strong><span>bugungi o‘yin</span></div></section>
+        </div>
+
+        <div id="page-games" class="page hidden">
+          <div class="page-intro"><div class="eyebrow">BILIM MAYDONI</div><h1>Intellektual o‘yinlar</h1><p>O‘zingizga mos yo‘nalishni tanlang va bilimlaringizni sinang.</p></div>
+          <div class="toolbar"><div class="search-box">⌕ <input id="gameSearch" placeholder="O‘yin nomini qidiring..."></div><select id="categoryFilter"><option value="all">Barcha fanlar</option><option value="16-20">16–20 yosh</option><option value="20-25">20–25 yosh</option></select><select id="difficultyFilter"><option value="all">Barcha darajalar</option><option>Oson</option><option>O‘rta</option><option>Qiyin</option><option>Ekspert</option></select></div>
+          <div id="allGames" class="game-grid"></div>
+        </div>
+
+        <div id="page-ranking" class="page hidden">
+          <div class="page-intro"><div class="eyebrow">ENG ZUKKO ISHTIROKCHILAR</div><h1>🏆 Bilimdonlar reytingi</h1><p>O‘yinlarda to‘plangan ballar bo‘yicha yetakchilar.</p></div>
+          <div class="ranking-tabs"><button class="rank-tab active" data-rank="all">Umumiy</button><button class="rank-tab" data-rank="16-20">16–20 yosh</button><button class="rank-tab" data-rank="20-25">20–25 yosh</button></div>
+          <div class="table-card"><div class="table-head"><span>O‘RIN</span><span>ISHTIROKCHI</span><span>O‘YINLAR</span><span>JAMI BALL</span></div><div id="rankingRows"></div></div>
+          <p class="muted tiny">Eslatma: reyting ushbu brauzerda saqlangan ishtirokchilar natijalaridan tuziladi.</p>
+        </div>
+
+        <div id="page-results" class="page hidden">
+          <div class="page-intro"><div class="eyebrow">SHAXSIY PROGRESS</div><h1>O‘yinlar tarixi</h1><p>Yakunlangan o‘yinlaringiz natijalari.</p></div>
+          <div id="historyList" class="history-list"></div>
+        </div>
+
+        <div id="page-about" class="page hidden">
+          <div class="page-intro"><div class="eyebrow">BIZ HAQIMIZDA</div><h1>Bilim — eng katta kuch!</h1><p>ADPI Aqlni Charxlash — Andijon davlat pedagogika instituti talabalari uchun intellektual mashq platformasi.</p></div>
+          <div class="about-grid"><article class="about-card"><div>🧠</div><h3>Tafakkur</h3><p>Mantiqiy fikrlash, xotira va tezkor qaror qabul qilishni rivojlantirish.</p></article><article class="about-card"><div>📚</div><h3>Bilim</h3><p>Pedagogik va umumta’lim fanlari bo‘yicha bilimlarni mustahkamlash.</p></article><article class="about-card"><div>🏆</div><h3>Musobaqa</h3><p>Natijalarni kuzatish va o‘z mahoratingizni reytingda sinash.</p></article></div>
+        </div>
+      </div>
+      <footer>© 2026 ADPI AQLNI CHARXLASH <span>Bilim — eng katta kuch!</span></footer>
+    </section>
+
+    <section id="gameScreen" class="screen game-screen hidden">
+      <header class="game-top"><button id="exitGame" class="icon-btn">←</button><div class="game-brand">🧠 ADPI <b>CHALLENGE</b></div><div class="game-player"><span id="gameAvatar">🧑‍🎓</span><b id="gameUsername">Player</b></div></header>
+      <div id="gameIntro" class="game-intro glass">
+        <div class="game-big-icon" id="introIcon">🧠</div><div class="eyebrow">O‘YIN QOIDALARI</div><h1 id="introTitle">Matematik zakovat</h1><p id="introDescription" class="muted"></p>
+        <div class="rules-grid"><div><strong>15 soniya</strong><span>Har savol uchun</span></div><div><strong>100 ball</strong><span>To‘g‘ri javob</span></div><div><strong>+50 gacha</strong><span>Tezkorlik bonusi</span></div><div><strong>10 savol</strong><span>Har bir o‘yinda</span></div></div>
+        <label for="usernameInput">O‘yin uchun username</label><input id="usernameInput" maxlength="20" placeholder="Masalan: BrainMaster_7">
+        <p class="muted tiny">Kamida 3 ta belgi. Faqat harf, raqam va pastki chiziq ishlatish mumkin.</p><p id="usernameError" class="error-text"></p>
+        <button id="startGameBtn" class="btn btn-primary btn-large full">O‘yinni boshlash 🚀</button>
+      </div>
+      <div id="quizArea" class="quiz-area hidden">
+        <div class="quiz-meta"><span id="questionCounter">SAVOL 1 / 10</span><span class="score-live">⭐ <b id="liveScore">0</b> ball</span></div>
+        <div class="progress-track"><div id="questionProgress" class="progress-fill"></div></div>
+        <div class="timer-row"><span>⏱ Vaqt</span><strong id="timerText">15</strong></div><div class="timer-track"><div id="timerBar" class="timer-fill"></div></div>
+        <div class="question-card"><div class="question-kicker" id="questionCategory">MATEMATIKA</div><h2 id="questionText">Savol matni</h2><div id="answersGrid" class="answers-grid"></div><div id="feedback" class="feedback hidden"></div><button id="nextQuestionBtn" class="btn btn-primary next-btn hidden">Keyingi savol →</button></div>
+      </div>
+      <div id="resultArea" class="result-area hidden">
+        <div class="result-confetti">✦　✧　✦</div><div class="result-medal" id="resultMedal">🏆</div><div class="eyebrow">O‘YIN YAKUNLANDI</div><h1 id="resultTitle">AFSONAVIY BILIMDON!</h1><p id="resultSubtitle" class="muted"></p>
+        <div class="result-score"><strong id="resultPoints">0</strong><span>to‘plangan ball</span></div>
+        <div class="result-stats"><div><strong id="resultCorrect">0</strong><span>To‘g‘ri</span></div><div><strong id="resultWrong">0</strong><span>Noto‘g‘ri</span></div><div><strong id="resultAccuracy">0%</strong><span>Aniqlik</span></div><div><strong id="resultTime">0s</strong><span>Vaqt</span></div></div>
+        <div class="result-actions"><button id="reviewBtn" class="btn btn-ghost">Javoblarni ko‘rish</button><button id="replayBtn" class="btn btn-primary">Qayta o‘ynash ↻</button><button id="homeBtn" class="btn btn-ghost">Bosh sahifa</button></div>
+        <div id="reviewList" class="review-list hidden"></div>
+      </div>
+    </section>
+  </main>
+  <div id="toast" class="toast"></div>
+  <div id="profileModal" class="modal hidden"><div class="modal-card"><button class="modal-close" id="closeProfile">×</button><div class="eyebrow">PROFILNI TAHRIRLASH</div><h2>Shaxsiy ma’lumotlar</h2><label for="editName">Ism</label><input id="editName"><label for="editAvatar">Avatar</label><select id="editAvatar"><option>🧑‍🎓</option><option>👨‍💻</option><option>👩‍🏫</option><option>🧠</option><option>🚀</option><option>🦉</option><option>🏆</option><option>🎯</option><option>⚡</option><option>👑</option></select><button id="saveProfile" class="btn btn-primary full">Saqlash</button></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
